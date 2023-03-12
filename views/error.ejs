@@ -1,10 +1,19 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Error</title>
+    <title>Website</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    
   </head>
   <body>
-    <h1><%= message %></h1>
+    <h1><%= title %></h1>
+    <p>.</p>
+    <p>Current date: <%= currentTime %></p>
+    
+    <p><%- include('includes/modalLogin')%></p>
+    <p><%- include('includes/modalRegister', {passwordMismatch: ""})%></p>
+    <p><a href="/static/users.html">A simple todo demo</a></p>
+    <p><a href="/users">A simple todo demo</a></p>
   </body>
 </html>
