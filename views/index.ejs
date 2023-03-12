@@ -10,7 +10,9 @@
     <h1><%= title %></h1>
     <p>.</p>
     <p>Current date: <%= currentTime %></p>
+    
     <p><%- include('includes/modalLogin')%></p>
+    <p><%- include('includes/modalRegister', {passwordMismatch: ""})%></p>
     <p><a href="/static/users.html">A simple todo demo</a></p>
     <p><a href="/users">A simple todo demo</a></p>
   </body>
