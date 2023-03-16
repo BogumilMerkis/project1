@@ -53,6 +53,7 @@ check("psw", "invalid password")
   if (!errors.isEmpty()){
     return res.render('index', {title: 'JustMe.' , passwordMismatch: "Passwords must match!"})
   }
+  
   else{
     let username = req.body.uname;
     let email = req.body.email;
