@@ -29,7 +29,7 @@ var currentTime = new Date();
 /* GET home page. */
 router.get('/', (req, res, next) =>{
   console.log(`${currentTime}`);
-  res.render('index', { title: 'Express' , currentTime: `${currentTime}`, passwordMismatch :""})
+  res.render('index', { title: 'JustMe.' , currentTime: `${currentTime}`, passwordMismatch :""})
 });
 
 router.get('/users', function(req, res, next) {
@@ -39,7 +39,7 @@ router.get('/users', function(req, res, next) {
 
 router.post('/register', [check("email", "Invalid email").isEmail(),
 check("psw", "invalid password")
-    .isLength({ min: 4 })
+    .isLength({ min: 8 })
     .custom((value,{req, loc, path}) => {
         if (value !== req.body.pswcheck) {
             // throw error if passwords do not match
@@ -51,22 +51,27 @@ check("psw", "invalid password")
 
   const errors = validationResult(req);
   if (!errors.isEmpty()){
-    return res.render('index', {title: 'Express' , currentTime: `${currentTime}`, passwordMismatch: "Passwords must match!"})
+    return res.render('index', {title: 'JustMe.' , passwordMismatch: "Passwords must match!"})
   }
   else{
     let username = req.body.uname;
     let email = req.body.email;
     let password = req.body.psw;
-    let password2 = req.body.pswcheck;
-    res.render('usr', {username: username, email: email, password: password})
+    res.redirect(301,'/'+username);
+    router.get('/:username', (req,res) =>{
+      res.render('usr', {title: 'JustMe.', passwordMismatch: "", username: username, email: email, password: password})
+    });
   
   }
 });
 
 router.post('/login', (req,res) =>{
-  let username = req.body.username;
-  let password = req.body.password;
-  res.send("hi");
+  let username = req.body.uname;
+  let password = req.body.psw;
+  res.redirect(301,'/'+username);
+    router.get('/:username', (req,res) =>{
+      res.render('usr', {title: 'JustMe.', passwordMismatch: "", username: username, password: password})
+    });
   console.log(`${username}:${password}` );
   
 });

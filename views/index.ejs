@@ -1,19 +1,60 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Website</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Current date: <%= currentTime %></p>
-    
-    <p><%- include('includes/modalLogin')%></p>
-    <p><%- include('includes/modalRegister', {passwordMismatch: passwordMismatch})%></p>
-    <p style="color:rgb(190, 36, 36)"><%= passwordMismatch %></p>
-    <p><a href="/static/users.html">A simple todo demo</a></p>
-    <p><a href="/users">A simple todo demo</a></p>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Website</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="padding-left: 5px;font-family: 'Courier New', Courier, monospace;" href="#">
+        |<%= title %>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" style="padding-top: 22px; ;">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item" style="padding-top: 22px">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item" style="padding-left: 5px;">
+            <a class="nav-link"><%- include('includes/modalLogin')%></a>
+          </li>
+          <li class="nav-item" style="padding-left: 5px;">
+            <a class="nav-link"><%- include('includes/modalRegister', {passwordMismatch: passwordMismatch})%></a>
+          </li>
+          <li>
+            <p style="color:rgb(255, 0, 0); padding-top: 30px;;">
+              <%= passwordMismatch %>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="footerwrapper">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+        </a>
+        <span class="mb-3 mb-md-0 text-muted">© 2023 JustMe, Inc</span>
+      </div>
+    </footer>
+  </div>
+</body>
+
 </html>
