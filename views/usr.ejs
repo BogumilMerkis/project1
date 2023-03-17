@@ -66,7 +66,7 @@
       <!-- Text area for Javascript Code  -->
       <textarea id="javascriptCode" spellcheck="false" placeholder="Type JavaScript code here" oninput="update(0)" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}if(event.keyCode==8){update(1);}"></textarea>
   </div>
-  <div class="iframe-container split">
+  <div class="iframe-container split" style="border: 2px solid #000;"><p>Preview:</p>
       <iframe id="viewer"></iframe>
   </div>
   </section>
